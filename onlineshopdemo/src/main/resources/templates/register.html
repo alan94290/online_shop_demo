@@ -22,7 +22,7 @@
 		<script src="themes/js/jquery.scrolltotop.js"></script>
 		<!--[if lt IE 9]>			
 			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-			<script src="js/respond.min.js"></script>
+			<script th:src="@{/js/respond.min.js}"></script>
 		<![endif]-->
 	</head>
     <body>		
@@ -75,7 +75,7 @@
 			</section>			
 			<section class="header_text sub">
 			<img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
-				<h4><span>Login or Regsiter</span></h4>
+				<h4><span>Login or Register</span></h4>
 			</section>			
 			<section class="main-content">				
 				<div class="row">
@@ -142,7 +142,7 @@
 									<p>Now that we know who you are. I'm not a mistake! In a comic, you know how you can tell who the arch-villain's going to be?</p>
 								</div>
 								<hr>
-								<div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Create your account"></div>
+								<div class="actions"><input tabindex="9" class="btn btn-inverse large" type="button" onclick="" value="Create your account"></div>
 							</fieldset>
 						</form>					
 					</div>				
