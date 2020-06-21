@@ -5,8 +5,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user")
 public class User {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "username")
 	private String username;
 
@@ -25,8 +25,8 @@ public class User {
 	@Column(name = "address")
 	private String address;
 
-	@Column(name = "register_time")
-	private String register_time;
+//	@Column(name = "register_time")
+//	private String register_time;
 
 	// getter/setter
 

@@ -106,30 +106,30 @@
 					</div>
 					<div class="span7">					
 						<h4 class="title"><span class="text"><strong>Register</strong> Form</span></h4>
-						<form action="#" method="post" class="form-stacked">
+						<form th:action="@{/register-request}" th:object="${user}" method="post" class="form-stacked">
 							<fieldset>
 								<div class="control-group">
 									<label class="control-label">Username</label>
 									<div class="controls">
-										<input type="text" placeholder="Enter your username" class="input-xlarge">
+										<input type="text" placeholder="Enter your username" th:field="*{username}" class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">Email Address:</label>
 									<div class="controls">
-										<input type="email" placeholder="Enter your email" class="input-xlarge">
+										<input type="email" placeholder="Enter your email" th:field="*{email}" class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">Name:</label>
 									<div class="controls">
-										<input type="name" placeholder="Enter your name" class="input-xlarge">
+										<input type="text" placeholder="Enter your name" th:field="*{name}" class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">Password:</label>
 									<div class="controls">
-										<input type="password" placeholder="Enter your password" class="input-xlarge">
+										<input type="password" placeholder="Enter your password" th:field="*{password}" class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
@@ -142,7 +142,7 @@
 									<p>Now that we know who you are. I'm not a mistake! In a comic, you know how you can tell who the arch-villain's going to be?</p>
 								</div>
 								<hr>
-								<div class="actions"><input tabindex="9" class="btn btn-inverse large" type="button" onclick="" value="Create your account"></div>
+								<div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Create your account"></div>
 							</fieldset>
 						</form>					
 					</div>				
