@@ -20,10 +20,6 @@ public class LoginController {
 	@PostMapping("/login-request")
 	public String sendLogin(@ModelAttribute("user") User user,Model model){
 
-
-		System.out.println(user.getUsername());
-		System.out.println(user.getPassword());
-
 		model.addAttribute("login",loginService.login(user.getUsername(),user.getPassword()));
 		return "login-request";
 	}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="utf-8">
+		<title>Bootstrap E-commerce Templates</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="description" content="">
+		<!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+		<!-- bootstrap -->
+		<link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+		<link th:href="@{/bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet">
+		<link th:href="@{/themes/css/bootstrappage.css}" rel="stylesheet"/>
+		
+		<!-- global styles -->
+		<link th:href="@{/themes/css/flexslider.css}" rel="stylesheet"/>
+		<link th:href="@{/themes/css/main.css}" rel="stylesheet"/>
+
+		<!-- scripts -->
+		<script src="themes/js/jquery-1.7.2.min.js"></script>
+		<script src="bootstrap/js/bootstrap.min.js"></script>				
+		<script src="themes/js/superfish.js"></script>	
+		<script src="themes/js/jquery.scrolltotop.js"></script>
+		<!--[if lt IE 9]>			
+			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+			<script th:src="@{/js/respond.min.js}"></script>
+		<![endif]-->
+	</head>
+    <body>		
+		<div th:include="header1.html"></div>
+		<div id="wrapper" class="container">
+			<span th:include="header2.html"></span>
+			<section class="header_text sub">
+			<img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
+				<h4><span>Account Maintenance</span></h4>
+			</section>			
+			<section class="main-content">				
+				<div class="row">
+					<div class="span5"></div>
+					<div class="span7">					
+						<h4 class="title"><span class="text">My Account</span></h4>
+						<form th:action="@{/account-maintain}" th:object="${user}"  method="post" class="form-stacked">
+							<fieldset>
+								<div class="control-group">
+									<label class="control-label">Username</label>
+									<div class="controls">
+										<input type="text" th:field="*{username}" readonly  class="input-xlarge">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">Email Address:</label>
+									<div class="controls">
+										<input type="email" placeholder="Enter the email you want to change" th:field="*{email}" required class="input-xlarge">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">Name:</label>
+									<div class="controls">
+										<input type="text" placeholder="Enter the name you want to change" th:field="*{name}" required class="input-xlarge">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">Password:</label>
+									<div class="controls">
+										<input type="password" placeholder="Enter the password you want to change"  th:field="*{password}" required class="input-xlarge">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">Cellphone Number</label>
+									<div class="controls">
+										<input type="text" placeholder="Enter your cellphone number" th:field="*{cellnum}" class="input-xlarge">
+									</div>
+								</div>
+								<div class="control-group">
+									<label class="control-label">Address</label>
+									<div class="controls">
+										<input type="text" placeholder="Enter your address" th:field="*{address}" class="input-xlarge">
+									</div>
+								</div>
+								<hr>
+								<div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Submit changes"></div>
+							</fieldset>
+						</form>					
+					</div>				
+				</div>
+			</section>			
+			<span th:include="footer.html"></span>
+		</div>
+		<script src="themes/js/common.js"></script>
+		<script>
+			$(document).ready(function() {
+				$('#checkout').click(function (e) {
+					document.location.href = "checkout";
+				})
+			});
+		</script>		
+    </body>
+</html>

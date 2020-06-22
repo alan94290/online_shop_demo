@@ -28,11 +28,10 @@ public class LoginDAOImpl implements LoginDAO {
 		query.setParameter(2,password);
 		List<User> users = query.getResultList();
 	if(users.isEmpty()){
-		System.out.println("Login fail");
 		return "Login fail";
 	}else {
-		System.out.println("Login success");
-		return "Login success";
+		// login success return account
+		return username;
 	}
 	}
 }
