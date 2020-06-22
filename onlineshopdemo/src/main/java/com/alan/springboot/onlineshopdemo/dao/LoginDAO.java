@@ -1,7 +1,7 @@
 package com.alan.springboot.onlineshopdemo.dao;
 
+import org.springframework.ui.Model;
+
 public interface LoginDAO {
-
-	// login
-
+	public String login(String username,String password);
 }

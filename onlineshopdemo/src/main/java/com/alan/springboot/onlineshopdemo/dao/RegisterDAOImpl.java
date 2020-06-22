@@ -13,7 +13,7 @@ public class RegisterDAOImpl implements RegisterDAO{
 	//define entity for entityManager
 	private EntityManager entityManager;
 
-	//set up constructor injection
+	// set up constructor injection
 	@Autowired
 	public RegisterDAOImpl(EntityManager entityManager){
 		this.entityManager = entityManager;
@@ -22,9 +22,9 @@ public class RegisterDAOImpl implements RegisterDAO{
 
 	@Override
 	public void addMember(User user) {
-		//get the current hibernate session
+		// get the current hibernate session
 		Session session = entityManager.unwrap(Session.class);
-		//save the user
+		// save the user
 		session.save(user);
 
 	}
