@@ -27,9 +27,9 @@
 		<![endif]-->
 	</head>
     <body>
-	<div th:include="header.html"></div>
-
+		<div th:include="header1.html"></div>
 		<div id="wrapper" class="container">
+			<span th:include="header2.html"></span>
 			<section  class="homepage-slider" id="home-slider">
 				<div class="flexslider">
 					<ul class="slides">
@@ -285,6 +285,8 @@
 					</div>
 				</div>
 			</section>
+			<span th:include="footer.html"></span>
+		</div>
 		<script src="themes/js/common.js"></script>
 		<script src="themes/js/jquery.flexslider-min.js"></script>
 		<script type="text/javascript">
@@ -301,7 +303,5 @@
 				});
 			});
 		</script>
-		</div>
-	<div th:include="footer.html"></div>
 	</body>
 </html>
