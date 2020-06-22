@@ -9,4 +9,19 @@ public class CartController {
 	public String showCart(){
 		return "cart";
 	}
+
+	@GetMapping("/header")
+	public String showHeader(){
+		return "header";
+	}
+
+	@GetMapping("/footer")
+	public String showFooter(){
+		return "footer";
+	}
+
+	@GetMapping("/test")
+	public String showTest(){
+		return "test";
+	}
 }
