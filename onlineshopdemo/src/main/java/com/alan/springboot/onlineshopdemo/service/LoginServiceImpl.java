@@ -1,20 +1,19 @@
 package com.alan.springboot.onlineshopdemo.service;
 
-import com.alan.springboot.onlineshopdemo.dao.LoginDAO;
+import com.alan.springboot.onlineshopdemo.dao.AccountDAO;
 import org.springframework.stereotype.Service;
-import org.springframework.ui.Model;
 
 @Service
 public class LoginServiceImpl implements LoginService {
 
-	private LoginDAO loginDAO;
+	private AccountDAO accountDAO;
 
-	public LoginServiceImpl(LoginDAO loginDAO){
-		this.loginDAO = loginDAO;
+	public LoginServiceImpl(AccountDAO accountDAO){
+		this.accountDAO = accountDAO;
 	}
 
 	@Override
 	public String login(String username, String password) {
-		return loginDAO.login(username,password);
+		return accountDAO.login(username,password);
 	}
 }

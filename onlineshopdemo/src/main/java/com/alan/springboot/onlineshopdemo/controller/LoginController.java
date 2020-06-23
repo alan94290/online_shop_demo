@@ -8,6 +8,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class LoginController {
 	private LoginService loginService;
@@ -18,9 +20,10 @@ public class LoginController {
 	}
 
 	@PostMapping("/login-request")
-	public String sendLogin(@ModelAttribute("user") User user,Model model){
+	public String sendLogin(@ModelAttribute("user") User user, HttpSession session){
 
-		model.addAttribute("login",loginService.login(user.getUsername(),user.getPassword()));
-		return "login-request";
+		session.setAttribute("login",loginService.login(user.getUsername(),user.getPassword()));
+		// return "login-request";
+		return "redirect:index";
 	}
 }

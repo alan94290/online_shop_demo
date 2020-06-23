@@ -8,18 +8,25 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 
 @Service
-public class RegisterServiceImpl implements RegisterService{
-
+public class AccountServiceImpl implements AccountService {
 	private AccountDAO accountDAO;
 
 	@Autowired
-	public RegisterServiceImpl(AccountDAO accountDAO){
+	public AccountServiceImpl(AccountDAO accountDAO){
 		this.accountDAO = accountDAO;
+	}
+
+
+	@Override
+	@Transactional
+	public User findByAccount(String username) {
+		User user = accountDAO.findByUsername(username);
+		return user;
 	}
 
 	@Override
 	@Transactional
-	public void addMember(User user) {
-		accountDAO.addMember(user);
+	public void modifyMember(User user) {
+		accountDAO.modifyMember(user);
 	}
 }

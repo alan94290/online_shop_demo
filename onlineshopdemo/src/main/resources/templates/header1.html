@@ -36,10 +36,12 @@
 				<div class="span8">
 					<div class="account pull-right">
 						<ul class="user-menu">				
-							<li><a th:href="@{account(username=${login})}">My Account</a></li>
-							<li><a href="cart">Your Cart</a></li>
-							<li><a href="checkout">Checkout</a></li>
-							<li><a href="register">Login or Register</a></li>
+							<li><a th:href="@{/account}">My Account</a></li>
+							<li><a th:href="@{/cart}">Your Cart</a></li>
+							<li><a th:href="@{/checkout}">Checkout</a></li>
+							<li><a th:if="${session.login==null}" th:href="@{/register}">Login or Register</a>
+								<a th:unless="${session.login==null}" th:href="@{/logout}">Logout</a>
+							</li>
 						</ul>
 					</div>
 				</div>
