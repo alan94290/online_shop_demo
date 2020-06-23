@@ -14,6 +14,12 @@ public class LoginServiceImpl implements LoginService {
 
 	@Override
 	public String login(String username, String password) {
-		return accountDAO.login(username,password);
+		try{
+			return accountDAO.login(username,password);
+		}catch (Exception e){
+			e.printStackTrace();
+			System.out.println("Login fail");
+			return null;
+		}
 	}
 }

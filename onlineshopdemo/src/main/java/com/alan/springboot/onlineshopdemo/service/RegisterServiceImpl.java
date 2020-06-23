@@ -1,7 +1,7 @@
 package com.alan.springboot.onlineshopdemo.service;
 
 import com.alan.springboot.onlineshopdemo.dao.AccountDAO;
-import com.alan.springboot.onlineshopdemo.entity.User;
+import com.alan.springboot.onlineshopdemo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +20,11 @@ public class RegisterServiceImpl implements RegisterService{
 	@Override
 	@Transactional
 	public void addMember(User user) {
-		accountDAO.addMember(user);
+		try{
+			accountDAO.addMember(user);
+		}catch (Exception e){
+			e.printStackTrace();
+			System.out.println("Add fail");
+		}
 	}
 }

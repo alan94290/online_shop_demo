@@ -11,6 +11,7 @@ public class CheckoutController {
 	public String showCheckout(HttpSession session) {
 		String login = (String) session.getAttribute("login");
 		if (login == null) {
+
 			return "redirect:register";
 		} else {
 			return "checkout";

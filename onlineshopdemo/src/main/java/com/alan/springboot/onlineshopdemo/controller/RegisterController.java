@@ -1,6 +1,6 @@
 package com.alan.springboot.onlineshopdemo.controller;
 
-import com.alan.springboot.onlineshopdemo.entity.User;
+import com.alan.springboot.onlineshopdemo.model.User;
 import com.alan.springboot.onlineshopdemo.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

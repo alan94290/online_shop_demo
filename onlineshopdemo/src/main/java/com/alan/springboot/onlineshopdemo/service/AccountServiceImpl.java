@@ -1,7 +1,7 @@
 package com.alan.springboot.onlineshopdemo.service;
 
 import com.alan.springboot.onlineshopdemo.dao.AccountDAO;
-import com.alan.springboot.onlineshopdemo.entity.User;
+import com.alan.springboot.onlineshopdemo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +27,11 @@ public class AccountServiceImpl implements AccountService {
 	@Override
 	@Transactional
 	public void modifyMember(User user) {
-		accountDAO.modifyMember(user);
+		try {
+			accountDAO.modifyMember(user);
+		}catch (Exception e){
+			e.printStackTrace();
+			System.out.println("Modify fail");
+		}
 	}
 }

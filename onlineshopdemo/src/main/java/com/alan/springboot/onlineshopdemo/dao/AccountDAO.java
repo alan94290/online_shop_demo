@@ -1,6 +1,6 @@
 package com.alan.springboot.onlineshopdemo.dao;
 
-import com.alan.springboot.onlineshopdemo.entity.User;
+import com.alan.springboot.onlineshopdemo.model.User;
 
 public interface AccountDAO {
 

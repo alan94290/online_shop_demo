@@ -1,4 +1,4 @@
-package com.alan.springboot.onlineshopdemo.entity;
+package com.alan.springboot.onlineshopdemo.model;
 
 import javax.persistence.*;
 
@@ -25,11 +25,7 @@ public class User {
 	@Column(name = "address")
 	private String address;
 
-//	@Column(name = "register_time")
-//	private String register_time;
-
 	// getter/setter
-
 
 	public String getUsername() {
 		return username;
@@ -77,5 +73,17 @@ public class User {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "User{" +
+				"username='" + username + '\'' +
+				", password='" + password + '\'' +
+				", email='" + email + '\'' +
+				", name='" + name + '\'' +
+				", cellnum='" + cellnum + '\'' +
+				", address='" + address + '\'' +
+				'}';
 	}
 }
