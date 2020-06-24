@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap E-commerce Templates</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+    <!-- bootstrap -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet">
+    <link th:href="@{/themes/css/bootstrappage.css}" rel="stylesheet"/>
+
+    <!-- global styles -->
+    <link th:href="@{/themes/css/flexslider.css}" rel="stylesheet"/>
+    <link th:href="@{/themes/css/main.css}" rel="stylesheet"/>
+
+    <!-- scripts -->
+    <script src="themes/js/jquery-1.7.2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="themes/js/superfish.js"></script>
+    <script src="themes/js/jquery.scrolltotop.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script th:src="@{/js/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<body>
+<div th:include="header1.html"></div>
+<div id="wrapper" class="container">
+    <span th:include="header2.html"></span>
+    <section class="header_text sub">
+        <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
+        <h4><span>Error Page</span></h4><br>
+        <hr>
+        <h4><span><input type="text" th:value="${session.error}" readonly></span></h4><br>
+        <br>
+        <p>Return register page after 3 seconds</p>
+        <script>
+            setTimeout("javascript:location.href='register'",3000);
+        </script>
+
+    </section>
+    <span th:include="footer.html"></span>
+</div>
+<script src="themes/js/common.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#checkout').click(function (e) {
+            document.location.href = "checkout";
+        })
+    });
+</script>
+</body>
+</html>

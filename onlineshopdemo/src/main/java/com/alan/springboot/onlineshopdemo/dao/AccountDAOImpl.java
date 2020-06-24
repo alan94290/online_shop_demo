@@ -54,13 +54,33 @@ public class AccountDAOImpl implements AccountDAO {
 		Query query = session.createQuery("from User where username=?1");
 		query.setParameter(1,username);
 		List<User> userList = query.getResultList();
-		User user=userList.get(0);
-		return user;
+		if(userList.isEmpty()){
+			return null;
+		}else {
+			User user = userList.get(0);
+			return user;
+		}
 	}
 
 	@Override
 	public void modifyMember(User user) {
 		Session session = entityManager.unwrap(Session.class);
 		session.saveOrUpdate(user);
+	}
+
+	@Override
+	public User findByEmail(String email) {
+		Session session = entityManager.unwrap(Session.class);
+		Query query = session.createQuery("from User where email=?1");
+		query.setParameter(1,email);
+		List<User> userList = query.getResultList();
+//		User user=userList.get(0);
+//		return user;
+		if(userList.isEmpty()){
+			return null;
+		}else {
+			User user = userList.get(0);
+			return user;
+		}
 	}
 }

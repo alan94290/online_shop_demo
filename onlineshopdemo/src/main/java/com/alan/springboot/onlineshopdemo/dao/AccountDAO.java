@@ -13,5 +13,7 @@ public interface AccountDAO {
 
 	public void modifyMember(User user);
 
+	public User findByEmail(String email);
+
 
 }
