@@ -19,7 +19,7 @@ public class AccountServiceImpl implements AccountService {
 
 	@Override
 	@Transactional
-	public User findByAccount(String username) {
+	public User findByUsername(String username) {
 		User user = accountDAO.findByUsername(username);
 		return user;
 	}

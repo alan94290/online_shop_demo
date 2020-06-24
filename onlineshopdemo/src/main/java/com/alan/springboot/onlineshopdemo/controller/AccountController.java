@@ -24,7 +24,7 @@ public class AccountController {
 		if(login==null){
 			return "redirect:register";
 		}else {
-			User user = accountService.findByAccount(login);
+			User user = accountService.findByUsername(login);
 			model.addAttribute("user",user);
 			return "account";
 		}

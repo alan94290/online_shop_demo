@@ -29,6 +29,7 @@ public class RegisterController {
 
 	@PostMapping("/register-request")
 	public String sendRegister(@ModelAttribute("user") User user){
+
 		registerService.addMember(user);
 		return "register-request";
 	}

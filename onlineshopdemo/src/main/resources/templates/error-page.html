@@ -31,11 +31,13 @@
     <span th:include="header2.html"></span>
     <section class="header_text sub">
         <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
-        <h4><span>Register Successful</span></h4><br>
+        <h4><span>Error Page</span></h4><br>
         <hr>
-        <p>Return index page after 3 seconds</p>
+        <h4><span>Login fail:username or password is wrong.</span></h4><br>
+        <br>
+        <p>Return login page after 3 seconds</p>
         <script>
-            setTimeout("javascript:location.href='index'",3000);
+            setTimeout("javascript:location.href='register'",3000);
         </script>
 
     </section>
