@@ -32,6 +32,27 @@ public class Product {
 		return productId;
 	}
 
+	public Product(){}
+
+	public Product(int productId, String seller, String productName, String productImage, double price, int inventory, String detail) {
+		this.productId = productId;
+		this.seller = seller;
+		this.productName = productName;
+		this.productImage = productImage;
+		this.price = price;
+		this.inventory = inventory;
+		this.detail = detail;
+	}
+
+	public Product(String seller, String productName, String productImage, double price, int inventory, String detail) {
+		this.seller = seller;
+		this.productName = productName;
+		this.productImage = productImage;
+		this.price = price;
+		this.inventory = inventory;
+		this.detail = detail;
+	}
+
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}

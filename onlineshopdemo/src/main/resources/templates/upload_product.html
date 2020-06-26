@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Bootstrap E-commerce Templates</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <!--[if ie]><meta content='IE=8' http-equiv='X-UA-Compatible'/><![endif]-->
+    <!-- bootstrap -->
+    <link th:href="@{/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/bootstrap/css/bootstrap-responsive.min.css}" rel="stylesheet">
+    <link th:href="@{/themes/css/bootstrappage.css}" rel="stylesheet"/>
+
+    <!-- global styles -->
+    <link th:href="@{/themes/css/flexslider.css}" rel="stylesheet"/>
+    <link th:href="@{/themes/css/main.css}" rel="stylesheet"/>
+
+    <!-- scripts -->
+    <script src="themes/js/jquery-1.7.2.min.js"></script>
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="themes/js/superfish.js"></script>
+    <script src="themes/js/jquery.scrolltotop.js"></script>
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <script th:src="@{/js/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<body>
+<div th:include="header1.html"></div>
+<div id="wrapper" class="container">
+    <span th:include="header2.html"></span>
+    <section class="header_text sub">
+        <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
+        <h4><span>Upload Product</span></h4>
+    </section>
+    <section class="main-content">
+        <div class="row">
+            <div class="span5"></div>
+            <div class="span7">
+                <h4 class="title"><span class="text">New Product</span></h4>
+                <form th:action="@{/account-maintain}" th:object="${product}"  method="post" class="form-stacked">
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label">Product Name</label>
+                            <div class="controls">
+                                <input type="text" th:field="*{productName}" class="input-xlarge">
+                                <input type="hidden" th:field="*{seller}">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Product Image</label>
+                            <div class="controls">
+                                <input type="hidden" th:field="*{productImage}" class="input-xlarge">
+                                <input type="file" class="input-xlarge">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Price:</label>
+                            <div class="controls">
+                                <input type="text" placeholder="Enter product price" th:field="*{price}" required class="input-xlarge">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Inventory</label>
+                            <div class="controls">
+                                <input type="text" placeholder="Enter the amount of the product"  th:field="*{inventory}" required class="input-xlarge">
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label">Detail</label>
+                            <div class="controls">
+                                <textarea placeholder="Enter introduction of your product" th:field="*{detail}" class="input-xlarge"></textarea>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Upload"></div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </section>
+    <span th:include="footer.html"></span>
+</div>
+<script src="themes/js/common.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#checkout').click(function (e) {
+            document.location.href = "checkout";
+        })
+    });
+</script>
+</body>
+</html>
