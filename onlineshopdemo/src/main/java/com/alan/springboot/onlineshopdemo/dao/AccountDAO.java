@@ -2,6 +2,8 @@ package com.alan.springboot.onlineshopdemo.dao;
 
 import com.alan.springboot.onlineshopdemo.model.User;
 
+import java.util.List;
+
 public interface AccountDAO {
 
 	// register account
@@ -14,6 +16,8 @@ public interface AccountDAO {
 	public void modifyMember(User user);
 
 	public User findByEmail(String email);
+
+	public List<User> findAll();
 
 
 }

@@ -83,4 +83,12 @@ public class AccountDAOImpl implements AccountDAO {
 			return user;
 		}
 	}
+
+	@Override
+	public List<User> findAll() {
+		Session session = entityManager.unwrap(Session.class);
+		Query query = session.createQuery("from User");
+		List<User> userList = query.getResultList();
+		return userList;
+	}
 }

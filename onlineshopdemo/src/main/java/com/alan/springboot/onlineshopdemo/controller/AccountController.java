@@ -2,6 +2,7 @@ package com.alan.springboot.onlineshopdemo.controller;
 
 import com.alan.springboot.onlineshopdemo.model.User;
 import com.alan.springboot.onlineshopdemo.service.AccountService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpSession;
 public class AccountController {
 	private AccountService accountService;
 
+	@Autowired
 	public AccountController(AccountService accountService){
 		this.accountService = accountService;
 	}
@@ -35,6 +37,5 @@ public class AccountController {
 		accountService.modifyMember(user);
 		return "redirect:account";
 	}
-
 
 }
