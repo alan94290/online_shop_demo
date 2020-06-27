@@ -57,13 +57,13 @@
                         <div class="control-group">
                             <label class="control-label">Price:</label>
                             <div class="controls">
-                                <input type="text" placeholder="Enter product price" th:field="*{price}" required class="input-xlarge">
+                                <input type="text" placeholder="Enter product price" onkeyup="value=value.replace(/[^\d]/g,'') " th:field="*{price}" required class="input-xlarge">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Inventory</label>
                             <div class="controls">
-                                <input type="text" placeholder="Enter the amount of the product"  th:field="*{inventory}" required class="input-xlarge">
+                                <input type="text" placeholder="Enter the amount of the product" onkeyup="value=value.replace(/[^\d]/g,'') " th:field="*{inventory}" required class="input-xlarge">
                             </div>
                         </div>
                         <div class="control-group">

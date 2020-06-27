@@ -16,3 +16,29 @@ function createCaptcha() {
 
 }
 
+// regular expression
+function check_data() {
+    let username = document.userForm.username.value;
+    let email = document.userForm.email.value;
+    let pw1 = document.userForm.pw1.value;
+    let pw2 = document.userForm.pw2.value;
+    let captcha = document.userForm.captcha.placeholder;
+    let confirmCaptcha = document.userForm.confirmCaptcha.value;
+
+    let usernameValidator = /^[a-zA-Z]\w{7,14}/;
+    let emailValidator = /\w+@\w+\.\w+(\.\w+)*/;
+    let passwordValidator = /^[a-zA-Z]\w{7,14}/;
+    if (!usernameValidator.test(username)){
+        alert("Please stick to username rule:a character first and length for 8-15")
+    }else if(!emailValidator.test(email)){
+        alert("Please input right email.")
+    }else if(!passwordValidator.test(pw1)&passwordValidator.test(pw2)){
+        alert("Please stick to password rule:a character first and length for 8-15")
+    }else if (pw1!=pw2){
+        alert("Please confirm input same password");
+    }else if(confirmCaptcha!=captcha){
+        alert("Wrong captcha");
+    }else {
+        document.userForm.submit();
+    }
+}

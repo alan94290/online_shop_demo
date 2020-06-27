@@ -45,13 +45,13 @@
 								<div class="control-group">
 									<label class="control-label">Username</label>
 									<div class="controls">
-										<input type="text" placeholder="Enter your username" th:field="*{username}" id="username" required class="input-xlarge">
+										<input type="text" placeholder="Enter your username" th:field="*{username}" required class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">Password</label>
 									<div class="controls">
-										<input type="password" placeholder="Enter your password" th:field="*{password}" id="password" required class="input-xlarge">
+										<input type="password" placeholder="Enter your password" th:field="*{password}" required class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
@@ -69,18 +69,18 @@
 					</div>
 					<div class="span7">					
 						<h4 class="title"><span class="text"><strong>Register</strong> Form</span></h4>
-						<form th:action="@{/register-request}" th:object="${user}" method="post" class="form-stacked">
+						<form name="userForm" th:action="@{/register-request}" th:object="${user}" method="post" class="form-stacked">
 							<fieldset>
 								<div class="control-group">
 									<label class="control-label">Username</label>
 									<div class="controls">
-										<input type="text" placeholder="Enter your username" th:field="*{username}" required class="input-xlarge">
+										<input type="text" name="username" id="username" placeholder="Enter your username" th:field="*{username}" required class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">Email Address:</label>
 									<div class="controls">
-										<input type="email" placeholder="Enter your email" th:field="*{email}" required class="input-xlarge">
+										<input type="email" name="email" id="email" placeholder="Enter your email" th:field="*{email}" required class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
@@ -92,33 +92,33 @@
 								<div class="control-group">
 									<label class="control-label">Password:</label>
 									<div class="controls">
-										<input type="password" placeholder="Enter your password" th:field="*{password}" required class="input-xlarge">
+										<input type="password" name="pw1" id="pw1" placeholder="Enter your password" th:field="*{password}" required class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">Confirm Password:</label>
 									<div class="controls">
-										<input type="password" placeholder="Enter your password again" required class="input-xlarge">
+										<input type="password" name="pw2" id="pw2" placeholder="Enter your password again" required class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">Captcha:</label>
 									<div class="controls">
-										<input type="text" placeholder="Captcha" th:id="captcha" readonly class="input-xlarge"><br>
+										<input type="text" placeholder="Captcha" name="captcha" id="captcha" readonly class="input-xlarge"><br>
 										<input class="btn btn-inverse large" type="button" value="Reload Captcha"onclick="createCaptcha()">
 									</div>
 								</div>
 								<div class="control-group">
 									<label class="control-label">Confirm Captcha:</label>
 									<div class="controls">
-										<input type="text" placeholder="Enter the captcha above" required class="input-xlarge">
+										<input type="text" name="confirmCaptcha" id="confirmCaptcha" placeholder="Enter the captcha above" required class="input-xlarge">
 									</div>
 								</div>
 								<div class="control-group">
 									<p>Now that we know who you are. I'm not a mistake! In a comic, you know how you can tell who the arch-villain's going to be?</p>
 								</div>
 								<hr>
-								<div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Create your account">
+								<div class="actions"><input tabindex="9" class="btn btn-inverse large" type="button" value="Create your account" onclick="check_data()">
 									<input tabindex="9" class="btn btn-inverse large" type="reset" value="Reset">
 								</div>
 							</fieldset>
