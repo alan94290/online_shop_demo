@@ -10,8 +10,8 @@ public class Product {
 	@Column(name = "product_id")
 	private int productId;
 
-	@Column(name = "seller")
-	private String seller;
+	@Column(name = "username")
+	private String username;
 
 	@Column(name = "product_name")
 	private String productName;
@@ -28,41 +28,21 @@ public class Product {
 	@Column(name = "detail")
 	private String detail;
 
-	public int getProductId() {
-		return productId;
+//	public int getProductId() {
+//		return productId;
+//	}
+//
+//	public void setProductId(int productId) {
+//		this.productId = productId;
+//	}
+
+
+	public String getUsername() {
+		return username;
 	}
 
-	public Product(){}
-
-	public Product(int productId, String seller, String productName, String productImage, double price, int inventory, String detail) {
-		this.productId = productId;
-		this.seller = seller;
-		this.productName = productName;
-		this.productImage = productImage;
-		this.price = price;
-		this.inventory = inventory;
-		this.detail = detail;
-	}
-
-	public Product(String seller, String productName, String productImage, double price, int inventory, String detail) {
-		this.seller = seller;
-		this.productName = productName;
-		this.productImage = productImage;
-		this.price = price;
-		this.inventory = inventory;
-		this.detail = detail;
-	}
-
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
-
-	public String getSeller() {
-		return seller;
-	}
-
-	public void setSeller(String seller) {
-		this.seller = seller;
+	public void setUsername(String username) {
+		this.username = username;
 	}
 
 	public String getProductName() {
@@ -109,11 +89,12 @@ public class Product {
 	public String toString() {
 		return "Product{" +
 				"productId=" + productId +
-				", seller='" + seller + '\'' +
+				", username='" + username + '\'' +
 				", productName='" + productName + '\'' +
 				", productImage='" + productImage + '\'' +
 				", price=" + price +
 				", inventory=" + inventory +
+				", detail='" + detail + '\'' +
 				'}';
 	}
 }

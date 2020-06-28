@@ -17,7 +17,7 @@ public class AccountDAOImpl implements AccountDAO {
 
 	// set up constructor injection
 	@Autowired
-	public AccountDAOImpl(EntityManager entityManager){
+	public AccountDAOImpl(EntityManager entityManager) {
 		this.entityManager = entityManager;
 	}
 
@@ -48,15 +48,13 @@ public class AccountDAOImpl implements AccountDAO {
 
 	@Override
 	public User findByUsername(String username) {
-
 		Session session = entityManager.unwrap(Session.class);
-
 		Query query = session.createQuery("from User where username=?1");
-		query.setParameter(1,username);
+		query.setParameter(1, username);
 		List<User> userList = query.getResultList();
-		if(userList.isEmpty()){
+		if (userList.isEmpty()) {
 			return null;
-		}else {
+		} else {
 			User user = userList.get(0);
 			return user;
 		}
@@ -72,13 +70,11 @@ public class AccountDAOImpl implements AccountDAO {
 	public User findByEmail(String email) {
 		Session session = entityManager.unwrap(Session.class);
 		Query query = session.createQuery("from User where email=?1");
-		query.setParameter(1,email);
+		query.setParameter(1, email);
 		List<User> userList = query.getResultList();
-//		User user=userList.get(0);
-//		return user;
-		if(userList.isEmpty()){
+		if (userList.isEmpty()) {
 			return null;
-		}else {
+		} else {
 			User user = userList.get(0);
 			return user;
 		}

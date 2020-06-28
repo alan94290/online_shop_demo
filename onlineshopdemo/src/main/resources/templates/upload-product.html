@@ -38,20 +38,19 @@
             <div class="span5"></div>
             <div class="span7">
                 <h4 class="title"><span class="text">New Product</span></h4>
-                <form th:action="@{/account-maintain}" th:object="${product}"  method="post" class="form-stacked">
+                <form th:action="@{/upload-request}" th:object="${product}" enctype="multipart/form-data"  method="post" class="form-stacked">
                     <fieldset>
                         <div class="control-group">
                             <label class="control-label">Product Name</label>
                             <div class="controls">
                                 <input type="text" th:field="*{productName}" class="input-xlarge">
-                                <input type="hidden" th:field="*{seller}">
+                                <input type="hidden" th:field="*{username}">
                             </div>
                         </div>
                         <div class="control-group">
                             <label class="control-label">Product Image</label>
                             <div class="controls">
-                                <input type="hidden" th:field="*{productImage}" class="input-xlarge">
-                                <input type="file" class="input-xlarge">
+                                <input type="file" name="product-image" class="input-xlarge">
                             </div>
                         </div>
                         <div class="control-group">

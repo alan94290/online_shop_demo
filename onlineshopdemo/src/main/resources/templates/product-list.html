@@ -31,50 +31,41 @@
 			<span th:include="header2.html"></span>
 			<section class="header_text sub">
 			<img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
-				<h4><span>Account Maintenance</span></h4>
+				<h4><span>Product Maintenance</span></h4>
 			</section>			
 			<section class="main-content">				
 				<div class="row">
 					<div class="span5"></div>
-					<div class="span7">					
-						<h4 class="title"><span class="text">My Account</span></h4>
-						<form th:action="@{/account-maintain}" th:object="${user}"  method="post" class="form-stacked">
-							<fieldset>
-								<div class="control-group">
-									<label class="control-label">Username</label>
-									<div class="controls">
-										<input type="text" th:field="*{username}" readonly  class="input-xlarge">
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">Email Address:</label>
-									<div class="controls">
-										<input type="email" placeholder="Enter the email you want to change" th:field="*{email}" required class="input-xlarge">
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">Name:</label>
-									<div class="controls">
-										<input type="text" placeholder="Enter the name you want to change" th:field="*{name}" required class="input-xlarge">
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">Cellphone Number</label>
-									<div class="controls">
-										<input type="text" placeholder="Enter your cellphone number" th:field="*{cellnum}" class="input-xlarge">
-									</div>
-								</div>
-								<div class="control-group">
-									<label class="control-label">Address</label>
-									<div class="controls">
-										<input type="text" placeholder="Enter your address" th:field="*{address}" class="input-xlarge">
-									</div>
-								</div>
-								<hr>
-								<div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Submit changes"></div>
-							</fieldset>
-						</form>					
-					</div>				
+					<div class="span7">
+						<h4 class="title"><span class="text">All Product</span></h4>
+
+
+					</div>
+				</div>
+				<div class="row">
+					<div class="span2"></div>
+					<div class="span8">
+					<table class="table table-striped table-bordered table-hover">
+						<thead>
+						<tr>
+							<th>Product Name</th>
+							<th>Price</th>
+							<th>Inventory</th>
+							<th>Action</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr th:each="product:${productList}">
+							<td th:text="${product.productName}"></td>
+							<td th:text="${product.price}"></td>
+							<td th:text="${product.inventory}"></td>
+														<td><a href="" class="btn btn-info btn-xs">Update</a>|<a href="" class="btn btn-danger btn-xs">Delete</a>
+							</td>
+						</tr>
+						</tbody>
+					</table>
+					</div>
+					<div class="span2"></div>
 				</div>
 			</section>			
 			<span th:include="footer.html"></span>

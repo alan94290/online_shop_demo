@@ -37,6 +37,7 @@
 			<div class="account pull-right">
 				<ul class="user-menu">
 					<li th:unless="${session.login==null}"><a th:href="@{/upload}">Upload Product</a></li>
+					<li th:unless="${session.login==null}"><a th:href="@{/product-list}">My Product</a></li>
 					<li th:unless="${session.login==null}"><a th:href="@{/account}">My Account</a></li>
 					<li th:unless="${session.login==null}"><a th:href="@{/cart}">Your Cart</a></li>
 					<li th:unless="${session.login==null}"><a th:href="@{/checkout}">Checkout</a></li>
