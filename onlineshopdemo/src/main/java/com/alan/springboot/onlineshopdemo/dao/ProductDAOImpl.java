@@ -57,5 +57,13 @@ public class ProductDAOImpl implements ProductDAO {
 		}
 	}
 
+	@Override
+	public List<Product> findAll() {
+		Session session = entityManager.unwrap(Session.class);
+		Query query = session.createQuery("from Product");
+		List<Product> productList = query.getResultList();
+		return productList;
+	}
+
 
 }

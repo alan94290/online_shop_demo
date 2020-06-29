@@ -59,4 +59,16 @@ public class ProductServiceImpl implements ProductService {
 		}
 
 	}
+
+	@Override
+	public List<Product> findAll() {
+		try {
+			List<Product> productList = productDAO.findAll();
+			return productList;
+		} catch (Exception e){
+			e.printStackTrace();
+			return null;
+		}
+
+	}
 }

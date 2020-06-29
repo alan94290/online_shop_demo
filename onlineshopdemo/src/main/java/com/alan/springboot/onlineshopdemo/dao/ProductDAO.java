@@ -13,4 +13,6 @@ public interface ProductDAO {
 
 	public Product showProductByIdUsername(int productId, String username);
 
+	public List<Product> findAll();
+
 }
