@@ -10,11 +10,11 @@ import javax.persistence.Query;
 import java.util.List;
 
 @Repository
-public class ProductProductImpl implements ProductDAO {
+public class ProductDAOImpl implements ProductDAO {
 	private EntityManager entityManager;
 
 	@Autowired
-	public ProductProductImpl(EntityManager entityManager){
+	public ProductDAOImpl(EntityManager entityManager){
 		this.entityManager = entityManager;
 	}
 
@@ -40,6 +40,21 @@ public class ProductProductImpl implements ProductDAO {
 		query.setParameter(1,username);
 		List<Product> productList = query.getResultList();
 		return productList;
+	}
+
+	@Override
+	public Product showProductByIdUsername(int productId, String username) {
+		Session session = entityManager.unwrap(Session.class);
+		Query query = session.createQuery("from Product where productId=?1 and username = ?2");
+		query.setParameter(1,productId);
+		query.setParameter(2,username);
+		List<Product> productList = query.getResultList();
+		if(productList.isEmpty()){
+			return null;
+		}else {
+			Product product = productList.get(0);
+			return product;
+		}
 	}
 
 

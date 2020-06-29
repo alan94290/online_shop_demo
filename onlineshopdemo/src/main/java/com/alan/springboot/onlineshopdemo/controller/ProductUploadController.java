@@ -15,12 +15,12 @@ import java.io.IOException;
 
 @Controller
 @RequestMapping("upload")
-public class UploadController {
+public class ProductUploadController {
 	private ProductService productService;
 	private static int num;
 
 	@Autowired
-	public UploadController(ProductService productService) {
+	public ProductUploadController(ProductService productService) {
 		this.productService = productService;
 	}
 

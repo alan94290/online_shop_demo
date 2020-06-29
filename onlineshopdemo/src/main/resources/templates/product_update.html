@@ -31,13 +31,13 @@
     <span th:include="header2.html"></span>
     <section class="header_text sub">
         <img class="pageBanner" th:src="@{/themes/images/pageBanner.png}" alt="New products" >
-        <h4><span>Upload Product</span></h4>
+        <h4><span>Update Product</span></h4>
     </section>
     <section class="main-content">
         <div class="row">
             <div class="span5"></div>
             <div class="span7">
-                <h4 class="title"><span class="text">New Product</span></h4>
+                <h4 class="title"><span class="text">Modify Product</span></h4>
                 <form th:action="@{/request}" th:object="${product}" enctype="multipart/form-data"  method="post" class="form-stacked">
                     <fieldset>
                         <div class="control-group">
@@ -50,6 +50,7 @@
                         <div class="control-group">
                             <label class="control-label">Product Image</label>
                             <div class="controls">
+                                <input type="hidden" th:field="*{productImage}">
                                 <input type="file" name="product-image" class="input-xlarge">
                             </div>
                         </div>
@@ -72,7 +73,7 @@
                             </div>
                         </div>
                         <hr>
-                        <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Upload"></div>
+                        <div class="actions"><input tabindex="9" class="btn btn-inverse large" type="submit" value="Update"></div>
                     </fieldset>
                 </form>
             </div>

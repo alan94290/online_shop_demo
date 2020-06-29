@@ -5,6 +5,7 @@ import com.alan.springboot.onlineshopdemo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
@@ -18,6 +19,7 @@ public class AdminServiceImpl implements AdminService{
 
 
 	@Override
+	@Transactional
 	public List<User> findAll() {
 		try{
 			List<User> userList = accountDAO.findAll();

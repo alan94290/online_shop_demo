@@ -11,4 +11,6 @@ public interface ProductService {
 
 	public List<Product> showProductByUsername(String username);
 
+	public Product showProductByIdUsername(int productId,String username);
+
 }

@@ -40,9 +40,4 @@ public class ProductController {
 		model.addAttribute("productList",productList);
 		return "product_list";
 	}
-
-	@GetMapping("/update")
-	public String showFormForUpdate(){
-		return "product_update";
-	}
 }

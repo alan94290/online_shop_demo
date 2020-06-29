@@ -28,13 +28,13 @@ public class Product {
 	@Column(name = "detail")
 	private String detail;
 
-//	public int getProductId() {
-//		return productId;
-//	}
-//
-//	public void setProductId(int productId) {
-//		this.productId = productId;
-//	}
+	public int getProductId() {
+		return productId;
+	}
+
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
 
 
 	public String getUsername() {

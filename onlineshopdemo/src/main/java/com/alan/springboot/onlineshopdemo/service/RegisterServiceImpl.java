@@ -29,6 +29,7 @@ public class RegisterServiceImpl implements RegisterService {
 	}
 
 	@Override
+	@Transactional
 	public String checkUsed(String username, String email) {
 		User user = accountDAO.findByUsername(username);
 		if (user == null) {
