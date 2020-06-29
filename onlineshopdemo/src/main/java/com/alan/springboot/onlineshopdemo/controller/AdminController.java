@@ -6,11 +6,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
+@RequestMapping("/admin")
 public class AdminController {
 	private AdminService adminService;
 
@@ -19,7 +21,7 @@ public class AdminController {
 		this.adminService = adminService;
 	}
 
-	@GetMapping("/admin-maintain")
+	@GetMapping("/maintain")
 	public String adminMaintenance(HttpSession session, Model model){
 		// get login session
 		String login = (String)session.getAttribute("login");
@@ -28,7 +30,7 @@ public class AdminController {
 			model.addAttribute("users",userList);
 			return "admin";
 		}else{
-			return "redirect:index";
+			return "redirect:/index";
 		}
 	}
 

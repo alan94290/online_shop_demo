@@ -16,13 +16,13 @@
     <link th:href="@{/themes/css/main.css}" rel="stylesheet"/>
 
     <!-- scripts -->
-    <script src="themes/js/jquery-1.7.2.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="themes/js/superfish.js"></script>
-    <script src="themes/js/jquery.scrolltotop.js"></script>
+    <script th:src="@{/themes/js/jquery-1.7.2.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/themes/js/superfish.js}"></script>
+    <script th:src="@{/themes/js/jquery.scrolltotop.js}"></script>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <script th:src="@{/js/respond.min.js}"></script>
+    <script th:src="@{/themes/js/respond.min.js}"></script>
     <![endif]-->
 </head>
 <body>
@@ -30,20 +30,20 @@
 <div id="wrapper" class="container">
     <span th:include="header2.html"></span>
     <section class="header_text sub">
-        <img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
+        <img class="pageBanner" th:src="@{/themes/images/pageBanner.png}" alt="New products" >
         <h4><span>Error Page</span></h4><br>
         <hr>
-        <h4><span><input type="text" th:value="${session.error}" readonly></span></h4><br>
+        <h4><span>Login fail:username or password is wrong.</span></h4><br>
         <br>
-        <p>Return register page after 3 seconds</p>
+        <p>Return login page after 3 seconds</p>
         <script>
-            setTimeout("javascript:location.href='register'",3000);
+            setTimeout("javascript:location.href='/register/showForm'",3000);
         </script>
 
     </section>
     <span th:include="footer.html"></span>
 </div>
-<script src="themes/js/common.js"></script>
+<script th:src="@{/themes/js/common.js}"></script>
 <script>
     $(document).ready(function() {
         $('#checkout').click(function (e) {

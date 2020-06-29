@@ -12,7 +12,7 @@ public class CheckoutController {
 		String login = (String) session.getAttribute("login");
 		if (login == null) {
 
-			return "redirect:register";
+			return "redirect:/register/showForm";
 		} else {
 			return "checkout";
 		}

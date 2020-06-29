@@ -8,12 +8,14 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@RequestMapping("/cart")
 public class CartController {
 	private CartService cartService;
 
@@ -23,11 +25,11 @@ public class CartController {
 	}
 
 
-	@GetMapping("/cart")
+	@GetMapping("/list")
 	public String showCart(HttpSession session, Model model) {
 		String login = (String) session.getAttribute("login");
 		if (login == null) {
-			return "redirect:register";
+			return "redirect:/register/showForm";
 		} else {
 			String username = (String) session.getAttribute("login");
 			List<Cart> cartList = cartService.getCartByUsername(username);
@@ -36,9 +38,9 @@ public class CartController {
 		}
 	}
 
-	@PostMapping("/cart-update")
+	@PostMapping("/update")
 	public String updateCart(@ModelAttribute("cart") List<Cart> cartList) {
 		cartService.updateCart(cartList);
-		return "redirect:cart";
+		return "redirect:/cart/list";
 	}
 }

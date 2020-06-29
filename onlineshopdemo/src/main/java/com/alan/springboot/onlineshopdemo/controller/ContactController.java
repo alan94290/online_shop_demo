@@ -11,7 +11,7 @@ public class ContactController {
 	public String showContact(HttpSession session){
 		String login = (String) session.getAttribute("login");
 		if (login == null) {
-			return "redirect:register";
+			return "redirect:/register/showForm";
 		} else {
 			return "contact";
 		}

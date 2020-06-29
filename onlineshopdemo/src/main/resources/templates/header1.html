@@ -16,13 +16,13 @@
 	<link th:href="@{/themes/css/main.css}" rel="stylesheet"/>
 
 	<!-- scripts -->
-	<script src="themes/js/jquery-1.7.2.min.js"></script>
-	<script src="bootstrap/js/bootstrap.min.js"></script>
-	<script src="themes/js/superfish.js"></script>
-	<script src="themes/js/jquery.scrolltotop.js"></script>
+	<script th:src="@{/themes/js/jquery-1.7.2.min.js}"></script>
+	<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+	<script th:src="@{/themes/js/superfish.js}"></script>
+	<script th:src="@{/themes/js/jquery.scrolltotop.js}"></script>
 	<!--[if lt IE 9]>
 	<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<script src="themes/js/respond.min.js"></script>
+	<script th:src="@{/themes/js/respond.min.js}"></script>
 	<![endif]-->
 </head>
 <body>
@@ -36,12 +36,12 @@
 		<div class="span8">
 			<div class="account pull-right">
 				<ul class="user-menu">
-					<li th:unless="${session.login==null}"><a th:href="@{/upload}">Upload Product</a></li>
-					<li th:unless="${session.login==null}"><a th:href="@{/product-list}">My Product</a></li>
-					<li th:unless="${session.login==null}"><a th:href="@{/account}">My Account</a></li>
-					<li th:unless="${session.login==null}"><a th:href="@{/cart}">Your Cart</a></li>
+					<li th:unless="${session.login==null}"><a th:href="@{/upload/showForm}">Upload Product</a></li>
+					<li th:unless="${session.login==null}"><a th:href="@{/product/list}">My Product</a></li>
+					<li th:unless="${session.login==null}"><a th:href="@{/account/maintain}">My Account</a></li>
+					<li th:unless="${session.login==null}"><a th:href="@{/cart/list}">Your Cart</a></li>
 					<li th:unless="${session.login==null}"><a th:href="@{/checkout}">Checkout</a></li>
-					<li><a th:if="${session.login==null}" th:href="@{/register}">Login or Register</a>
+					<li><a th:if="${session.login==null}" th:href="@{/register/showForm}">Login or Register</a>
 						<a th:unless="${session.login==null}" th:href="@{/logout}">Logout</a>
 					</li>
 				</ul>

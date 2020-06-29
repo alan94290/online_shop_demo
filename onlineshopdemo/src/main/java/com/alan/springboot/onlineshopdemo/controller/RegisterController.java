@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 
 @Controller
+@RequestMapping("/register")
 public class RegisterController {
 	private RegisterService registerService;
 
@@ -22,27 +23,27 @@ public class RegisterController {
 		this.registerService = registerService;
 	}
 
-	@GetMapping("/register")
+	@GetMapping("/showForm")
 	public String showRegister(Model model){
 		User user = new User();
 		model.addAttribute("user",user);
 		return "register";
 	}
 
-	@PostMapping("/register-request")
+	@PostMapping("/request")
 	public String sendRegister(@ModelAttribute("user") User user, HttpSession session){
 		String username = user.getUsername();
 		String email = user.getEmail();
 		if(registerService.checkUsed(username,email).equals("unused")){
 			session.setAttribute("login",username);
 			registerService.addMember(user);
-		return "register-request";
+		return "register_request";
 		}else if(registerService.checkUsed(username,email).equals("username used")){
 			session.setAttribute("error","username used");
-			return "redirect:register-error";
+			return "redirect:/error/register";
 		}else {
-			session.setAttribute("error","username used");
-			return "redirect:register-error";
+			session.setAttribute("error","email used");
+			return "redirect:/error/register";
 		}
 	}
 }

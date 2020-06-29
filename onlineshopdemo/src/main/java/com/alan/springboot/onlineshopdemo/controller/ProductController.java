@@ -6,32 +6,43 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
-public class ProductDetailController {
+@RequestMapping("/product")
+public class ProductController {
 	private ProductService productService;
 
 	@Autowired
-	public ProductDetailController(ProductService productService){
+	public ProductController(ProductService productService){
 		this.productService = productService;
 	}
 
-	@GetMapping("/product-detail")
+	@GetMapping("/products")
+	public String showProducts(){
+		return "products";
+	}
+
+	@GetMapping("/detail")
 	public String showProductDetail(int productId, Model model){
 		Product product = productService.showProduct(productId);
 		model.addAttribute("product",product);
-		return "product-detail";
+		return "product_detail";
 	}
 
-	@GetMapping("/product-list")
+	@GetMapping("/list")
 	public String showAllProduct(Model model, HttpSession session){
 		String username = (String) session.getAttribute("login");
 		List<Product> productList = productService.showProductByUsername(username);
 		model.addAttribute("productList",productList);
-		return "product-list";
+		return "product_list";
+	}
+
+	@GetMapping("/update")
+	public String showFormForUpdate(){
+		return "product_update";
 	}
 }

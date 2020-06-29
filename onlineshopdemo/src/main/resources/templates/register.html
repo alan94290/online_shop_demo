@@ -16,13 +16,13 @@
 		<link th:href="@{/themes/css/main.css}" rel="stylesheet"/>
 
 		<!-- scripts -->
-		<script src="themes/js/jquery-1.7.2.min.js"></script>
-		<script src="bootstrap/js/bootstrap.min.js"></script>				
-		<script src="themes/js/superfish.js"></script>	
-		<script src="themes/js/jquery.scrolltotop.js"></script>
-		<!--[if lt IE 9]>			
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-			<script th:src="@{/js/respond.min.js}"></script>
+		<script th:src="@{/themes/js/jquery-1.7.2.min.js}"></script>
+		<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+		<script th:src="@{/themes/js/superfish.js}"></script>
+		<script th:src="@{/themes/js/jquery.scrolltotop.js}"></script>
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script th:src="@{/themes/js/respond.min.js}"></script>
 		<![endif]-->
 
 		<script src="js/register.js"></script>
@@ -32,14 +32,14 @@
 		<div id="wrapper" class="container">
 			<span th:include="header2.html"></span>
 			<section class="header_text sub">
-			<img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
+			<img class="pageBanner" th:src="@{/themes/images/pageBanner.png}" alt="New products" >
 				<h4><span>Login or Register</span></h4>
 			</section>			
 			<section class="main-content">				
 				<div class="row">
 					<div class="span5">					
 						<h4 class="title"><span class="text"><strong>Login</strong> Form</span></h4>
-						<form th:action="@{/login-request}" th:object="${user}" method="post">
+						<form th:action="@{/login/request}" th:object="${user}" method="post">
 							<input type="hidden" name="next" value="/">
 							<fieldset>
 								<div class="control-group">
@@ -69,7 +69,7 @@
 					</div>
 					<div class="span7">					
 						<h4 class="title"><span class="text"><strong>Register</strong> Form</span></h4>
-						<form name="userForm" th:action="@{/register-request}" th:object="${user}" method="post" class="form-stacked">
+						<form name="userForm" th:action="@{/register/request}" th:object="${user}" method="post" class="form-stacked">
 							<fieldset>
 								<div class="control-group">
 									<label class="control-label">Username</label>
@@ -128,7 +128,7 @@
 			</section>			
 			<span th:include="footer.html"></span>
 		</div>
-		<script src="themes/js/common.js"></script>
+		<script th:src="@{/themes/js/common.js}"></script>
 		<script>
 			$(document).ready(function() {
 				$('#checkout').click(function (e) {

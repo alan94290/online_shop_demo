@@ -17,39 +17,39 @@
     <link th:href="@{/themes/css/main.css}" rel="stylesheet"/>
 
     <!-- scripts -->
-    <script src="themes/js/jquery-1.7.2.min.js"></script>
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="themes/js/superfish.js"></script>
-    <script src="themes/js/jquery.scrolltotop.js"></script>
+    <script th:src="@{/themes/js/jquery-1.7.2.min.js}"></script>
+    <script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+    <script th:src="@{/themes/js/superfish.js}"></script>
+    <script th:src="@{/themes/js/jquery.scrolltotop.js}"></script>
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <script src="themes/js/respond.min.js"></script>
+    <script th:src="@{/themes/js/respond.min.js}"></script>
     <![endif]-->
 </head>
 <body>
 <section class="navbar main-menu">
     <div class="navbar-inner main-menu">
-        <a href="index" class="logo pull-left"><img src="themes/images/logo.png" class="site_logo" alt=""></a>
+        <a th:href="@{/index}" class="logo pull-left"><img th:src="@{/themes/images/logo.png}" class="site_logo" alt=""></a>
         <nav id="menu" class="pull-right">
             <ul>
-                <li><a href="products">Woman</a>
+                <li><a th:href="@{/product/products}">Woman</a>
                     <ul>
-                        <li><a href="products">Lacinia nibh</a></li>
-                        <li><a href="products">Eget molestie</a></li>
-                        <li><a href="products">Varius purus</a></li>
+                        <li><a th:href="@{/product/products}">Lacinia nibh</a></li>
+                        <li><a th:href="@{/product/products}">Eget molestie</a></li>
+                        <li><a th:href="@{/product/products}">Varius purus</a></li>
                     </ul>
                 </li>
-                <li><a href="products">Man</a></li>
-                <li><a href="products">Sport</a>
+                <li><a th:href="@{/product/products}">Man</a></li>
+                <li><a th:href="@{/product/products}">Sport</a>
                     <ul>
-                        <li><a href="products">Gifts and Tech</a></li>
-                        <li><a href="products">Ties and Hats</a></li>
-                        <li><a href="products">Cold Weather</a></li>
+                        <li><a th:href="@{/product/products}">Gifts and Tech</a></li>
+                        <li><a th:href="@{/product/products}">Ties and Hats</a></li>
+                        <li><a th:href="@{/product/products}">Cold Weather</a></li>
                     </ul>
                 </li>
-                <li><a href="products">Hangbag</a></li>
-                <li><a href="products">Best Seller</a></li>
-                <li><a href="products">Top Seller</a></li>
+                <li><a th:href="@{/product/products}">Hangbag</a></li>
+                <li><a th:href="@{/product/products}">Best Seller</a></li>
+                <li><a th:href="@{/product/products}">Top Seller</a></li>
             </ul>
         </nav>
     </div>

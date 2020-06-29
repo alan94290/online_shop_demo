@@ -8,10 +8,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
+@RequestMapping("/account")
 public class AccountController {
 	private AccountService accountService;
 
@@ -20,11 +22,11 @@ public class AccountController {
 		this.accountService = accountService;
 	}
 
-	@GetMapping("/account")
+	@GetMapping("/maintain")
 	public String showAccount(HttpSession session,Model model){
 		String login = (String)session.getAttribute("login");
 		if(login==null){
-			return "redirect:register";
+			return "redirect:/register/showForm";
 		}else {
 			User user = accountService.findByUsername(login);
 			model.addAttribute("user",user);
@@ -32,10 +34,10 @@ public class AccountController {
 		}
 	}
 
-	@PostMapping("/account-maintain")
+	@PostMapping("/sendAccountModify")
 	public String updateAccount(@ModelAttribute("user")User user){
 		accountService.modifyMember(user);
-		return "redirect:account";
+		return "redirect:/account/maintain";
 	}
 
 }

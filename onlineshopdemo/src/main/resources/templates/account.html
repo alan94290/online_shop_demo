@@ -16,13 +16,13 @@
 		<link th:href="@{/themes/css/main.css}" rel="stylesheet"/>
 
 		<!-- scripts -->
-		<script src="themes/js/jquery-1.7.2.min.js"></script>
-		<script src="bootstrap/js/bootstrap.min.js"></script>				
-		<script src="themes/js/superfish.js"></script>	
-		<script src="themes/js/jquery.scrolltotop.js"></script>
-		<!--[if lt IE 9]>			
-			<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-			<script th:src="@{/js/respond.min.js}"></script>
+		<script th:src="@{/themes/js/jquery-1.7.2.min.js}"></script>
+		<script th:src="@{/bootstrap/js/bootstrap.min.js}"></script>
+		<script th:src="@{/themes/js/superfish.js}"></script>
+		<script th:src="@{/themes/js/jquery.scrolltotop.js}"></script>
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<script th:src="@{/themes/js/respond.min.js}"></script>
 		<![endif]-->
 	</head>
     <body>		
@@ -30,7 +30,7 @@
 		<div id="wrapper" class="container">
 			<span th:include="header2.html"></span>
 			<section class="header_text sub">
-			<img class="pageBanner" src="themes/images/pageBanner.png" alt="New products" >
+			<img class="pageBanner" th:src="@{/themes/images/pageBanner.png}" alt="New products" >
 				<h4><span>Account Maintenance</span></h4>
 			</section>			
 			<section class="main-content">				
@@ -38,7 +38,7 @@
 					<div class="span5"></div>
 					<div class="span7">					
 						<h4 class="title"><span class="text">My Account</span></h4>
-						<form th:action="@{/account-maintain}" th:object="${user}"  method="post" class="form-stacked">
+						<form th:action="@{/account/sendAccountModify}" th:object="${user}"  method="post" class="form-stacked">
 							<fieldset>
 								<div class="control-group">
 									<label class="control-label">Username</label>
@@ -79,7 +79,7 @@
 			</section>			
 			<span th:include="footer.html"></span>
 		</div>
-		<script src="themes/js/common.js"></script>
+		<script th:src="@{/themes/js/common.js}"></script>
 		<script>
 			$(document).ready(function() {
 				$('#checkout').click(function (e) {
