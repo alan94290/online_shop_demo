@@ -17,7 +17,6 @@ import java.io.IOException;
 @RequestMapping("upload")
 public class ProductUploadController {
 	private ProductService productService;
-	private static int num;
 
 	@Autowired
 	public ProductUploadController(ProductService productService) {
@@ -35,9 +34,10 @@ public class ProductUploadController {
 
 	@PostMapping("/request")
 	public String sendProduct(@ModelAttribute("product") Product product, @RequestPart("product-image") MultipartFile multipartFile) throws IOException {
-		num += 1;
+
 		Image image = new Image();
-		String productImage = image.imageStore(multipartFile,num);
+		String productImage = image.randomName();
+		image.imageStore(multipartFile,productImage);
 		product.setProductImage(productImage);
 		productService.uploadProduct(product);
 		return "redirect:/product/list";
