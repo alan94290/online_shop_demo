@@ -1,6 +1,7 @@
 package com.alan.springboot.onlineshopdemo.controller;
 
 import com.alan.springboot.onlineshopdemo.model.Cart;
+import com.alan.springboot.onlineshopdemo.model.Product;
 import com.alan.springboot.onlineshopdemo.service.CartService;
 import com.alan.springboot.onlineshopdemo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,10 +17,12 @@ import java.util.List;
 @RequestMapping("/cart")
 public class CartController {
 	private CartService cartService;
+	private ProductService productService;
 
 	@Autowired
-	public CartController(CartService cartService) {
+	public CartController(CartService cartService, ProductService productService) {
 		this.cartService = cartService;
+		this.productService = productService;
 	}
 
 
@@ -31,15 +34,20 @@ public class CartController {
 		} else {
 			String username = (String) session.getAttribute("login");
 			List<Cart> cartList = cartService.getCartByUsername(username);
-			for(Cart cart:cartList){
-				int productId =cart.getProductId();
+			List<Product> productList = new ArrayList<>();
+			for (Cart cart : cartList) {
+				int productId = cart.getProductId();
+				int quantity = cart.getQuantity();
+				Product product = productService.showProduct(productId);
+				productList.add(product);
 			}
-			model.addAttribute("cart", cartList);
+			model.addAttribute("cart",cartList);
+			model.addAttribute("product",productList);
 			return "cart";
 		}
 	}
 
-//	@PostMapping("/add")
+	//	@PostMapping("/add")
 //	public String addCart(@RequestParam("productId") String id,@RequestParam("quantity") String amount, HttpSession session) {
 //		int productId = Integer.parseInt(id);
 //		String username = (String) session.getAttribute("login");
@@ -60,23 +68,22 @@ public class CartController {
 //
 //		return "redirect:/cart/list";
 //	}
-@PostMapping("/add")
-public String addCart(@RequestParam("productId") int productId,@RequestParam("quantity") int quantity, HttpSession session) {
-	String username = (String) session.getAttribute("login");
-	Cart cart = cartService.getCartByProductIdUsername(productId,username);
-	if(cart==null){
-		cart = new Cart();
-		cart.setProductId(productId);
-		cart.setUsername(username);
-		cart.setQuantity(quantity);
-		cartService.addCart(cart);
-	}else {
-		cart.setQuantity(cart.getQuantity()+quantity);
-		cartService.updateCart(cart);
+	@PostMapping("/add")
+	public String addCart(@RequestParam("productId") int productId, @RequestParam("quantity") int quantity, HttpSession session) {
+		String username = (String) session.getAttribute("login");
+		Cart cart = cartService.getCartByProductIdUsername(productId, username);
+		if (cart == null) {
+			cart = new Cart();
+			cart.setProductId(productId);
+			cart.setUsername(username);
+			cart.setQuantity(quantity);
+			cartService.addCart(cart);
+		} else {
+			cart.setQuantity(cart.getQuantity() + quantity);
+			cartService.updateCart(cart);
+		}
+
+
+		return "redirect:/cart/list";
 	}
-
-
-
-	return "redirect:/cart/list";
-}
 }
