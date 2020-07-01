@@ -2,13 +2,11 @@ package com.alan.springboot.onlineshopdemo.controller;
 
 import com.alan.springboot.onlineshopdemo.model.Cart;
 import com.alan.springboot.onlineshopdemo.service.CartService;
+import com.alan.springboot.onlineshopdemo.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
@@ -33,14 +31,52 @@ public class CartController {
 		} else {
 			String username = (String) session.getAttribute("login");
 			List<Cart> cartList = cartService.getCartByUsername(username);
+			for(Cart cart:cartList){
+				int productId =cart.getProductId();
+			}
 			model.addAttribute("cart", cartList);
 			return "cart";
 		}
 	}
 
-	@PostMapping("/update")
-	public String updateCart(@ModelAttribute("cart") List<Cart> cartList) {
-		cartService.updateCart(cartList);
-		return "redirect:/cart/list";
+//	@PostMapping("/add")
+//	public String addCart(@RequestParam("productId") String id,@RequestParam("quantity") String amount, HttpSession session) {
+//		int productId = Integer.parseInt(id);
+//		String username = (String) session.getAttribute("login");
+//		int quantity = Integer.parseInt(amount);
+//		Cart cart = cartService.getCartByProductIdUsername(productId,username);
+//		if(cart==null){
+//			Cart cart1 = new Cart();
+//			cart1.setProductId(productId);
+//			cart1.setUsername(username);
+//			cart1.setQuantity(quantity);
+//			cartService.addCart(cart1);
+//		}else {
+//			cart.setQuantity(cart.getQuantity()+quantity);
+//			cartService.updateCart(cart);
+//		}
+//
+//
+//
+//		return "redirect:/cart/list";
+//	}
+@PostMapping("/add")
+public String addCart(@RequestParam("productId") int productId,@RequestParam("quantity") int quantity, HttpSession session) {
+	String username = (String) session.getAttribute("login");
+	Cart cart = cartService.getCartByProductIdUsername(productId,username);
+	if(cart==null){
+		cart = new Cart();
+		cart.setProductId(productId);
+		cart.setUsername(username);
+		cart.setQuantity(quantity);
+		cartService.addCart(cart);
+	}else {
+		cart.setQuantity(cart.getQuantity()+quantity);
+		cartService.updateCart(cart);
 	}
+
+
+
+	return "redirect:/cart/list";
+}
 }

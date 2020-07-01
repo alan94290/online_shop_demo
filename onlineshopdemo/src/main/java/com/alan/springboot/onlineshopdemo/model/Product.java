@@ -1,10 +1,15 @@
 package com.alan.springboot.onlineshopdemo.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "product")
-public class Product {
+public class Product implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "product_id")
@@ -28,6 +33,14 @@ public class Product {
 	@Column(name = "detail")
 	private String detail;
 
+	@Column(name = "upload_time")
+	@CreationTimestamp
+	private LocalDateTime uploadTime;
+
+	@Column(name = "update_time")
+	@UpdateTimestamp
+	private LocalDateTime updateTime;
+
 	public int getProductId() {
 		return productId;
 	}
@@ -35,7 +48,6 @@ public class Product {
 	public void setProductId(int productId) {
 		this.productId = productId;
 	}
-
 
 	public String getUsername() {
 		return username;
@@ -85,6 +97,22 @@ public class Product {
 		this.detail = detail;
 	}
 
+	public LocalDateTime getUploadTime() {
+		return uploadTime;
+	}
+
+	public void setUploadTime(LocalDateTime uploadTime) {
+		this.uploadTime = uploadTime;
+	}
+
+	public LocalDateTime getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(LocalDateTime updateTime) {
+		this.updateTime = updateTime;
+	}
+
 	@Override
 	public String toString() {
 		return "Product{" +
@@ -95,6 +123,8 @@ public class Product {
 				", price=" + price +
 				", inventory=" + inventory +
 				", detail='" + detail + '\'' +
+				", uploadTime=" + uploadTime +
+				", updateTime=" + updateTime +
 				'}';
 	}
 }

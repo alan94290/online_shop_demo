@@ -25,9 +25,16 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 
 	@Override
+	public void updateProduct(Product product) {
+		Session session = entityManager.unwrap(Session.class);
+		session.update(product);
+	}
+
+	@Override
 	public Product showProduct(int productId) {
 		Session session = entityManager.unwrap(Session.class);
 		Query query = session.createQuery("from Product where productId =?1");
+		query.setParameter(1,productId);
 		List<Product> productList = query.getResultList();
 		Product product = productList.get(0);
 		return product;

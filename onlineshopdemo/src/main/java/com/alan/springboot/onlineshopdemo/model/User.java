@@ -1,10 +1,14 @@
 package com.alan.springboot.onlineshopdemo.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
 
 	@Id
 	@Column(name = "username")
@@ -24,6 +28,18 @@ public class User {
 
 	@Column(name = "address")
 	private String address;
+
+	@Column(name = "register_time")
+	@CreationTimestamp
+	private LocalDateTime registerTime;
+
+	@Column(name = "modify_time")
+	@CreationTimestamp
+	private LocalDateTime modifyTime;
+
+
+
+
 
 	// getter/setter
 
@@ -75,6 +91,22 @@ public class User {
 		this.address = address;
 	}
 
+	public LocalDateTime getRegisterTime() {
+		return registerTime;
+	}
+
+	public void setRegisterTime(LocalDateTime registerTime) {
+		this.registerTime = registerTime;
+	}
+
+	public LocalDateTime getModifyTime() {
+		return modifyTime;
+	}
+
+	public void setModifyTime(LocalDateTime modifyTime) {
+		this.modifyTime = modifyTime;
+	}
+
 	@Override
 	public String toString() {
 		return "User{" +
@@ -84,6 +116,8 @@ public class User {
 				", name='" + name + '\'' +
 				", cellnum='" + cellnum + '\'' +
 				", address='" + address + '\'' +
+				", registerTime=" + registerTime +
+				", modifyTime=" + modifyTime +
 				'}';
 	}
 }

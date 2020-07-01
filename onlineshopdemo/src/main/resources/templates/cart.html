@@ -52,11 +52,11 @@
 							<tbody>
 								<tr th:each="tempCart:${cart}">
 									<td><input type="checkbox" th:value="${tempCart.productId}"></td>
-									<td><a href="product_detail"><img alt="Product Image" th:src="${tempCart.productImage}"></a></td>
-									<td th:text="${tempCart.productName}"></td>
+									<td><a href="product_detail"><img alt="Product Image" ></a></td>
+									<td ></td>
 									<td><input type="text" th:placeholder="${tempCart.quantity}" th:value="${tempCart.quantity}" class="input-mini"></td>
-									<td th:text="${tempCart.unitPrice}"></td>
-									<td th:text="${tempCart.quantity*tempCart.unitPrice}"></td>
+									<td ></td>
+									<td ></td>
 								</tr>
 								<tr>
 									<td><input type="checkbox" value="option1"></td>

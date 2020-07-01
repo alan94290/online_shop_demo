@@ -28,10 +28,30 @@ public class CartDAOImpl implements CartDAO {
 	}
 
 	@Override
-	public void updateCart(List<Cart> cartList) {
+	public void updateCart(Cart cart) {
 		Session session = entityManager.unwrap(Session.class);
-		for (Cart cart:cartList){
-			session.update(cart);
+		session.update(cart);
+	}
+
+	@Override
+	public Cart getCartByProductIdUsername(int productId, String username) {
+		Session session = entityManager.unwrap(Session.class);
+		Query query = session.createQuery("from Cart where productId = ?1 and username = ?2");
+		query.setParameter(1,productId);
+		query.setParameter(2,username);
+		List<Cart> cartList = query.getResultList();
+		if (cartList.isEmpty()){
+			return null;
+		}else{
+			Cart cart = cartList.get(0);
+			return cart;
 		}
+
+	}
+
+	@Override
+	public void addCart(Cart cart) {
+		Session session = entityManager.unwrap(Session.class);
+		session.save(cart);
 	}
 }

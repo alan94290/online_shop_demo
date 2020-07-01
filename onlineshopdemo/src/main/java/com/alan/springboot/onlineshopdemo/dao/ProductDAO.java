@@ -7,6 +7,8 @@ import java.util.List;
 public interface ProductDAO {
 	public void uploadProduct(Product product);
 
+	public void updateProduct(Product product);
+
 	public Product showProduct(int productId);
 
 	public List<Product> showProductByUsername(String username);

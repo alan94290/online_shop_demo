@@ -1,29 +1,36 @@
 package com.alan.springboot.onlineshopdemo.model;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "cart")
-public class Cart {
+public class Cart implements Serializable {
 
 	@Id
 	@Column(name = "product_id")
 	private int productId;
 
+	@Id
 	@Column(name = "username")
 	private String username;
 
-	@Column(name = "product_image")
-	private String productImage;
-
-	@Column(name = "product_name")
-	private String productName;
 
 	@Column(name = "quantity")
 	private int quantity;
 
-	@Column(name = "unit_price")
-	private double unitPrice;
+	@Column(name = "order_time")
+	@CreationTimestamp
+	private LocalDateTime orderTime;
+
+	@Column(name = "update_time")
+	@UpdateTimestamp
+	private LocalDateTime updateTime;
+
 
 	public int getProductId() {
 		return productId;
@@ -41,22 +48,6 @@ public class Cart {
 		this.username = username;
 	}
 
-	public String getProductImage() {
-		return productImage;
-	}
-
-	public void setProductImage(String productImage) {
-		this.productImage = productImage;
-	}
-
-	public String getProductName() {
-		return productName;
-	}
-
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-
 	public int getQuantity() {
 		return quantity;
 	}
@@ -65,11 +56,30 @@ public class Cart {
 		this.quantity = quantity;
 	}
 
-	public double getUnitPrice() {
-		return unitPrice;
+	public LocalDateTime getOrderTime() {
+		return orderTime;
 	}
 
-	public void setUnitPrice(double unitPrice) {
-		this.unitPrice = unitPrice;
+	public void setOrderTime(LocalDateTime orderTime) {
+		this.orderTime = orderTime;
+	}
+
+	public LocalDateTime getUpdateTime() {
+		return updateTime;
+	}
+
+	public void setUpdateTime(LocalDateTime updateTime) {
+		this.updateTime = updateTime;
+	}
+
+	@Override
+	public String toString() {
+		return "Cart{" +
+				"productId=" + productId +
+				", username='" + username + '\'' +
+				", quantity=" + quantity +
+				", orderTime=" + orderTime +
+				", updateTime=" + updateTime +
+				'}';
 	}
 }

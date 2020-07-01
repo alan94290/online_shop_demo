@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -27,7 +28,7 @@ public class ProductController {
 	}
 
 	@GetMapping("/detail")
-	public String showProductDetail(int productId, Model model){
+	public String showProductDetail(@RequestParam("productId") int productId, Model model){
 		Product product = productService.showProduct(productId);
 		model.addAttribute("product",product);
 		return "product_detail";
