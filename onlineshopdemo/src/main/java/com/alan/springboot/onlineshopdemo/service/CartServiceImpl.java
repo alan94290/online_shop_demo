@@ -37,9 +37,13 @@ public class CartServiceImpl implements CartService {
 
 	@Override
 	@Transactional
-	public void updateCart(Cart cart) {
+	public void updateCart(Cart cart, int quantity) {
 		try {
 			cartDAO.updateCart(cart);
+			int productId = cart.getProductId();
+			Product product = productDAO.showProduct(productId);
+			product.setInventory(product.getInventory()-quantity);
+			productDAO.updateProduct(product);
 		} catch (Exception e){
 			e.printStackTrace();
 		}

@@ -80,7 +80,7 @@ public class CartController {
 			cartService.addCart(cart);
 		} else {
 			cart.setQuantity(cart.getQuantity() + quantity);
-			cartService.updateCart(cart);
+			cartService.updateCart(cart,quantity);
 		}
 
 

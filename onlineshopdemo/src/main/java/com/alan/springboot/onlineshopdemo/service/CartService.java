@@ -8,7 +8,7 @@ public interface CartService {
 
 	public List<Cart> getCartByUsername(String username);
 
-	public void updateCart(Cart cart);
+	public void updateCart(Cart cart,int quantity);
 
 	public Cart getCartByProductIdUsername(int productId, String username);
 
