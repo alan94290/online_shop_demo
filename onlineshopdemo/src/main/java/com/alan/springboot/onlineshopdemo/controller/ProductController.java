@@ -15,30 +15,30 @@ import java.util.List;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
-	private ProductService productService;
+    private ProductService productService;
 
-	@Autowired
-	public ProductController(ProductService productService){
-		this.productService = productService;
-	}
+    @Autowired
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
-	@GetMapping("/products")
-	public String showProducts(){
-		return "products";
-	}
+    @GetMapping("/products")
+    public String showProducts() {
+        return "products";
+    }
 
-	@GetMapping("/detail")
-	public String showProductDetail(@RequestParam("productId") int productId, Model model){
-		Product product = productService.showProduct(productId);
-		model.addAttribute("product",product);
-		return "product_detail";
-	}
+    @GetMapping("/detail")
+    public String showProductDetail(@RequestParam("productId") int productId, Model model) {
+        Product product = productService.showProduct(productId);
+        model.addAttribute("product", product);
+        return "product_detail";
+    }
 
-	@GetMapping("/list")
-	public String showAllProduct(Model model, HttpSession session){
-		String username = (String) session.getAttribute("login");
-		List<Product> productList = productService.showProductByUsername(username);
-		model.addAttribute("productList",productList);
-		return "product_list";
-	}
+    @GetMapping("/list")
+    public String showAllProduct(Model model, HttpSession session) {
+        String username = (String) session.getAttribute("login");
+        List<Product> productList = productService.showProductByUsername(username);
+        model.addAttribute("productList", productList);
+        return "product_list";
+    }
 }

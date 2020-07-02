@@ -9,25 +9,25 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class AdminServiceImpl implements AdminService{
-	private AccountDAO accountDAO;
+public class AdminServiceImpl implements AdminService {
+    private AccountDAO accountDAO;
 
-	@Autowired
-	public AdminServiceImpl(AccountDAO accountDAO){
-		this.accountDAO = accountDAO;
-	}
+    @Autowired
+    public AdminServiceImpl(AccountDAO accountDAO) {
+        this.accountDAO = accountDAO;
+    }
 
 
-	@Override
-	@Transactional
-	public List<User> findAll() {
-		try{
-			List<User> userList = accountDAO.findAll();
-			return userList;
-		}catch (Exception e){
-			e.printStackTrace();
-			return null;
-		}
+    @Override
+    @Transactional
+    public List<User> findAll() {
+        try {
+            List<User> userList = accountDAO.findAll();
+            return userList;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
 
-	}
+    }
 }

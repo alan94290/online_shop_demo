@@ -11,66 +11,66 @@ import java.util.List;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
-	private EntityManager entityManager;
+    private EntityManager entityManager;
 
-	@Autowired
-	public ProductDAOImpl(EntityManager entityManager){
-		this.entityManager = entityManager;
-	}
+    @Autowired
+    public ProductDAOImpl(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
-	@Override
-	public void uploadProduct(Product product) {
-		Session session = entityManager.unwrap(Session.class);
-		session.save(product);
-	}
+    @Override
+    public void uploadProduct(Product product) {
+        Session session = entityManager.unwrap(Session.class);
+        session.save(product);
+    }
 
-	@Override
-	public void updateProduct(Product product) {
-		Session session = entityManager.unwrap(Session.class);
-		session.update(product);
-	}
+    @Override
+    public void updateProduct(Product product) {
+        Session session = entityManager.unwrap(Session.class);
+        session.update(product);
+    }
 
-	@Override
-	public Product showProduct(int productId) {
-		Session session = entityManager.unwrap(Session.class);
-		Query query = session.createQuery("from Product where productId =?1");
-		query.setParameter(1,productId);
-		List<Product> productList = query.getResultList();
-		Product product = productList.get(0);
-		return product;
-	}
+    @Override
+    public Product showProduct(int productId) {
+        Session session = entityManager.unwrap(Session.class);
+        Query query = session.createQuery("from Product where productId =?1");
+        query.setParameter(1, productId);
+        List<Product> productList = query.getResultList();
+        Product product = productList.get(0);
+        return product;
+    }
 
-	@Override
-	public List<Product> showProductByUsername(String username) {
-		Session session = entityManager.unwrap(Session.class);
-		Query query = session.createQuery("from Product where username = ?1 order by productId desc");
-		query.setParameter(1,username);
-		List<Product> productList = query.getResultList();
-		return productList;
-	}
+    @Override
+    public List<Product> showProductByUsername(String username) {
+        Session session = entityManager.unwrap(Session.class);
+        Query query = session.createQuery("from Product where username = ?1 order by productId desc");
+        query.setParameter(1, username);
+        List<Product> productList = query.getResultList();
+        return productList;
+    }
 
-	@Override
-	public Product showProductByIdUsername(int productId, String username) {
-		Session session = entityManager.unwrap(Session.class);
-		Query query = session.createQuery("from Product where productId=?1 and username = ?2");
-		query.setParameter(1,productId);
-		query.setParameter(2,username);
-		List<Product> productList = query.getResultList();
-		if(productList.isEmpty()){
-			return null;
-		}else {
-			Product product = productList.get(0);
-			return product;
-		}
-	}
+    @Override
+    public Product showProductByIdUsername(int productId, String username) {
+        Session session = entityManager.unwrap(Session.class);
+        Query query = session.createQuery("from Product where productId=?1 and username = ?2");
+        query.setParameter(1, productId);
+        query.setParameter(2, username);
+        List<Product> productList = query.getResultList();
+        if (productList.isEmpty()) {
+            return null;
+        } else {
+            Product product = productList.get(0);
+            return product;
+        }
+    }
 
-	@Override
-	public List<Product> findAll() {
-		Session session = entityManager.unwrap(Session.class);
-		Query query = session.createQuery("from Product");
-		List<Product> productList = query.getResultList();
-		return productList;
-	}
+    @Override
+    public List<Product> findAll() {
+        Session session = entityManager.unwrap(Session.class);
+        Query query = session.createQuery("from Product");
+        List<Product> productList = query.getResultList();
+        return productList;
+    }
 
 
 }

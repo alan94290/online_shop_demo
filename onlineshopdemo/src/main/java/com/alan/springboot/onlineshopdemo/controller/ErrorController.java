@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/error")
 public class ErrorController {
 
-	@GetMapping("/login")
-	public String sendLoginError(){
-		return "login_error";
-	}
+    @GetMapping("/login")
+    public String sendLoginError() {
+        return "login_error";
+    }
 
-	@GetMapping("/register")
-	public String sendRegisterError(){
-		return "register_error";
-	}
+    @GetMapping("/register")
+    public String sendRegisterError() {
+        return "register_error";
+    }
 }

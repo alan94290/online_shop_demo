@@ -15,29 +15,29 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/account")
 public class AccountController {
-	private AccountService accountService;
+    private AccountService accountService;
 
-	@Autowired
-	public AccountController(AccountService accountService){
-		this.accountService = accountService;
-	}
+    @Autowired
+    public AccountController(AccountService accountService) {
+        this.accountService = accountService;
+    }
 
-	@GetMapping("/maintain")
-	public String showAccount(HttpSession session,Model model){
-		String login = (String)session.getAttribute("login");
-		if(login==null){
-			return "redirect:/register/showForm";
-		}else {
-			User user = accountService.findByUsername(login);
-			model.addAttribute("user",user);
-			return "account";
-		}
-	}
+    @GetMapping("/maintain")
+    public String showAccount(HttpSession session, Model model) {
+        String login = (String) session.getAttribute("login");
+        if (login == null) {
+            return "redirect:/register/showForm";
+        } else {
+            User user = accountService.findByUsername(login);
+            model.addAttribute("user", user);
+            return "account";
+        }
+    }
 
-	@PostMapping("/sendAccountModify")
-	public String updateAccount(@ModelAttribute("user")User user){
-		accountService.modifyMember(user);
-		return "redirect:/account/maintain";
-	}
+    @PostMapping("/sendAccountModify")
+    public String updateAccount(@ModelAttribute("user") User user) {
+        accountService.modifyMember(user);
+        return "redirect:/account/maintain";
+    }
 
 }

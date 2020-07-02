@@ -14,24 +14,24 @@ import java.util.List;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-	private AdminService adminService;
+    private AdminService adminService;
 
-	@Autowired
-	public AdminController(AdminService adminService){
-		this.adminService = adminService;
-	}
+    @Autowired
+    public AdminController(AdminService adminService) {
+        this.adminService = adminService;
+    }
 
-	@GetMapping("/maintain")
-	public String adminMaintenance(HttpSession session, Model model){
-		// get login session
-		String login = (String)session.getAttribute("login");
-		if (login.equals("alan94290")){
-			List<User> userList = adminService.findAll();
-			model.addAttribute("users",userList);
-			return "admin";
-		}else{
-			return "redirect:/index";
-		}
-	}
+    @GetMapping("/maintain")
+    public String adminMaintenance(HttpSession session, Model model) {
+        // get login session
+        String login = (String) session.getAttribute("login");
+        if (login.equals("alan94290")) {
+            List<User> userList = adminService.findAll();
+            model.addAttribute("users", userList);
+            return "admin";
+        } else {
+            return "redirect:/index";
+        }
+    }
 
 }

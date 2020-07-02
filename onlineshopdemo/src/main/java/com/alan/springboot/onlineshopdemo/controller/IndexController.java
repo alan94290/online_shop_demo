@@ -11,21 +11,22 @@ import java.util.List;
 
 @Controller
 public class IndexController {
-	private ProductService productService;
+    private ProductService productService;
 
-	@Autowired
-	public IndexController(ProductService productService){
-		this.productService = productService;
-	}
+    @Autowired
+    public IndexController(ProductService productService) {
+        this.productService = productService;
+    }
 
-	@GetMapping("/")
-	public String redirectIndex(){
-		return "redirect:/index";
-	}
-	@GetMapping("/index")
-	public String showIndex(Model model){
-		List<Product> productList =  productService.findAll();
-		model.addAttribute("products",productList);
-		return "index";
-	}
+    @GetMapping("/")
+    public String redirectIndex() {
+        return "redirect:/index";
+    }
+
+    @GetMapping("/index")
+    public String showIndex(Model model) {
+        List<Product> productList = productService.findAll();
+        model.addAttribute("products", productList);
+        return "index";
+    }
 }

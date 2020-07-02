@@ -11,75 +11,75 @@ import java.time.LocalDateTime;
 @Table(name = "cart")
 public class Cart implements Serializable {
 
-	@Id
-	@Column(name = "product_id")
-	private int productId;
+    @Id
+    @Column(name = "product_id")
+    private int productId;
 
-	@Id
-	@Column(name = "username")
-	private String username;
-
-
-	@Column(name = "quantity")
-	private int quantity;
-
-	@Column(name = "order_time")
-	@CreationTimestamp
-	private LocalDateTime orderTime;
-
-	@Column(name = "update_time")
-	@UpdateTimestamp
-	private LocalDateTime updateTime;
+    @Id
+    @Column(name = "username")
+    private String username;
 
 
-	public int getProductId() {
-		return productId;
-	}
+    @Column(name = "quantity")
+    private int quantity;
 
-	public void setProductId(int productId) {
-		this.productId = productId;
-	}
+    @Column(name = "order_time")
+    @CreationTimestamp
+    private LocalDateTime orderTime;
 
-	public String getUsername() {
-		return username;
-	}
+    @Column(name = "update_time")
+    @UpdateTimestamp
+    private LocalDateTime updateTime;
 
-	public void setUsername(String username) {
-		this.username = username;
-	}
 
-	public int getQuantity() {
-		return quantity;
-	}
+    public int getProductId() {
+        return productId;
+    }
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+    public void setProductId(int productId) {
+        this.productId = productId;
+    }
 
-	public LocalDateTime getOrderTime() {
-		return orderTime;
-	}
+    public String getUsername() {
+        return username;
+    }
 
-	public void setOrderTime(LocalDateTime orderTime) {
-		this.orderTime = orderTime;
-	}
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
-	public LocalDateTime getUpdateTime() {
-		return updateTime;
-	}
+    public int getQuantity() {
+        return quantity;
+    }
 
-	public void setUpdateTime(LocalDateTime updateTime) {
-		this.updateTime = updateTime;
-	}
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-	@Override
-	public String toString() {
-		return "Cart{" +
-				"productId=" + productId +
-				", username='" + username + '\'' +
-				", quantity=" + quantity +
-				", orderTime=" + orderTime +
-				", updateTime=" + updateTime +
-				'}';
-	}
+    public LocalDateTime getOrderTime() {
+        return orderTime;
+    }
+
+    public void setOrderTime(LocalDateTime orderTime) {
+        this.orderTime = orderTime;
+    }
+
+    public LocalDateTime getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(LocalDateTime updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Cart{" +
+                "productId=" + productId +
+                ", username='" + username + '\'' +
+                ", quantity=" + quantity +
+                ", orderTime=" + orderTime +
+                ", updateTime=" + updateTime +
+                '}';
+    }
 }

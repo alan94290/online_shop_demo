@@ -15,19 +15,19 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/update")
 public class ProductUpdateController {
-	private ProductService productService;
+    private ProductService productService;
 
-	@Autowired
-	public ProductUpdateController(ProductService productService){
-		this.productService = productService;
-	}
+    @Autowired
+    public ProductUpdateController(ProductService productService) {
+        this.productService = productService;
+    }
 
-	@GetMapping("/showForm")
-	public String showFormForUpdate(@RequestParam("productId") int productId, HttpSession session, Model model){
-		String username = (String)session.getAttribute("login");
-		Product product = productService.showProductByIdUsername(productId,username);
-		product.setUsername(username);
-		model.addAttribute("product",product);
-		return "product_update";
-	}
+    @GetMapping("/showForm")
+    public String showFormForUpdate(@RequestParam("productId") int productId, HttpSession session, Model model) {
+        String username = (String) session.getAttribute("login");
+        Product product = productService.showProductByIdUsername(productId, username);
+        product.setUsername(username);
+        model.addAttribute("product", product);
+        return "product_update";
+    }
 }

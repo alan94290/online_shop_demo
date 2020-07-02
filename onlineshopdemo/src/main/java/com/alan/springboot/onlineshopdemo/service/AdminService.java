@@ -5,5 +5,5 @@ import com.alan.springboot.onlineshopdemo.model.User;
 import java.util.List;
 
 public interface AdminService {
-	public List<User> findAll();
+    public List<User> findAll();
 }

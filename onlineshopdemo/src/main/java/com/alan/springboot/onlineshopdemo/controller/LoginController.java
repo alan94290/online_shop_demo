@@ -14,22 +14,22 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping("/login")
 public class LoginController {
-	private LoginService loginService;
+    private LoginService loginService;
 
-	@Autowired
-	public LoginController(LoginService loginService){
-		this.loginService = loginService;
-	}
+    @Autowired
+    public LoginController(LoginService loginService) {
+        this.loginService = loginService;
+    }
 
-	@PostMapping("/request")
-	public String sendLogin(@ModelAttribute("user") User user, HttpSession session){
+    @PostMapping("/request")
+    public String sendLogin(@ModelAttribute("user") User user, HttpSession session) {
 
-		session.setAttribute("login",loginService.login(user.getUsername(),user.getPassword()));
-		String login = (String)session.getAttribute("login");
-		if(login==null){
-			return "redirect:/error/login";
-		}else {
-			return "redirect:/index";
-		}
-	}
+        session.setAttribute("login", loginService.login(user.getUsername(), user.getPassword()));
+        String login = (String) session.getAttribute("login");
+        if (login == null) {
+            return "redirect:/error/login";
+        } else {
+            return "redirect:/index";
+        }
+    }
 }
