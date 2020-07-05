@@ -35,7 +35,7 @@ public class AccountController {
     }
 
     @PostMapping("/sendAccountModify")
-    public String updateAccount(@ModelAttribute("user") User user) {
+    public String updateAccount(@ModelAttribute("user") User user,HttpSession session) {
         accountService.modifyMember(user);
         return "redirect:/account/maintain";
     }

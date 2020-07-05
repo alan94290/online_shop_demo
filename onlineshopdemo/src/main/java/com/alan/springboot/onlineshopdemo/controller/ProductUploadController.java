@@ -33,7 +33,7 @@ public class ProductUploadController {
     }
 
     @PostMapping("/request")
-    public String sendProduct(@ModelAttribute("product") Product product, @RequestPart("product-image") MultipartFile multipartFile) throws IOException {
+    public String sendProduct(@ModelAttribute("product") Product product, @RequestPart("product-image") MultipartFile multipartFile, HttpSession session) throws IOException {
 
         Image image = new Image();
         String productImage = image.randomName();

@@ -23,7 +23,7 @@ public class LoginController {
 
     @PostMapping("/request")
     public String sendLogin(@ModelAttribute("user") User user, HttpSession session) {
-
+        
         session.setAttribute("login", loginService.login(user.getUsername(), user.getPassword()));
         String login = (String) session.getAttribute("login");
         if (login == null) {

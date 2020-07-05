@@ -1,6 +1,7 @@
 package com.alan.springboot.onlineshopdemo.model;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -34,7 +35,7 @@ public class User implements Serializable {
     private LocalDateTime registerTime;
 
     @Column(name = "modify_time")
-    @CreationTimestamp
+    @UpdateTimestamp
     private LocalDateTime modifyTime;
 
 
