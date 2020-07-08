@@ -26,7 +26,7 @@ public class Image {
 
     public void imageStore(MultipartFile multipartFile, String productImage) throws IOException {
         InputStream inputStream = multipartFile.getInputStream();
-        OutputStream outputStream = new FileOutputStream("D:\\online_shop_demo\\onlineshopdemo\\src\\main\\resources\\static\\upload\\images\\" + productImage + ".jpg");
+        OutputStream outputStream = new FileOutputStream("src\\main\\resources\\static\\upload\\images\\" + productImage + ".jpg");
         byte[] bytes = new byte[(int) multipartFile.getSize()];
         inputStream.read(bytes);
         outputStream.write(bytes);
