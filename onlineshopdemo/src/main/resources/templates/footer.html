@@ -34,7 +34,7 @@
 							<li><a th:href="@{/index}">Homepage</a></li>
 							<li><a th:href="@{/about}">About Us</a></li>
 							<li><a th:href="@{/contact}">Contact Us</a></li>
-							<li><a th:unless="${session.login==null}" th:href="@{/cart/list}">Your Cart</a></li>
+							<li><a th:unless="${session.login==null}" th:href="@{/cart/list}">My Cart</a></li>
 							<li><a th:if="${session.login==null}" th:href="@{/register/showForm}">Login or Register</a>
 								<a th:unless="${session.login==null}" th:href="@{/logout}">Logout</a>
 							</li>

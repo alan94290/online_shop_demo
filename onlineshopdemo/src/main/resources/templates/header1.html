@@ -39,7 +39,7 @@
 					<li th:unless="${session.login==null}"><a th:href="@{/upload/showForm}">Upload Product</a></li>
 					<li th:unless="${session.login==null}"><a th:href="@{/product/list}">My Product</a></li>
 					<li th:unless="${session.login==null}"><a th:href="@{/account/maintain}">My Account</a></li>
-					<li th:unless="${session.login==null}"><a th:href="@{/cart/list}">Your Cart</a></li>
+					<li th:unless="${session.login==null}"><a th:href="@{/cart/list}">My Cart</a></li>
 					<li th:unless="${session.login==null}"><a th:href="@{/checkout}">Checkout</a></li>
 					<li><a th:if="${session.login==null}" th:href="@{/register/showForm}">Login or Register</a>
 						<a th:unless="${session.login==null}" th:href="@{/logout}">Logout</a>
