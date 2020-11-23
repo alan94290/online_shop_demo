@@ -51,18 +51,27 @@ public class CartController {
     public String addCart(@RequestParam("productId") int productId, @RequestParam("quantity") int quantity, HttpSession session) {
         String username = (String) session.getAttribute("login");
         Cart cart = cartService.getCartByProductIdUsername(productId, username);
-        if (cart == null) {
-            cart = new Cart();
-            cart.setProductId(productId);
-            cart.setUsername(username);
-            cart.setQuantity(quantity);
-            cartService.addCart(cart);
-        } else {
-            cart.setQuantity(cart.getQuantity() + quantity);
-            cartService.updateCart(cart, quantity);
+        if(username != null){
+            if (cart == null) {
+                cart = new Cart();
+                cart.setProductId(productId);
+                cart.setUsername(username);
+                cart.setQuantity(quantity);
+                cartService.addCart(cart);
+            } else {
+                cart.setQuantity(cart.getQuantity() + quantity);
+                cartService.updateCart(cart, quantity);
+
+            }
+
+            return "redirect:/cart/list";
+
+        }else{
+            return "redirect:/register/showForm";
         }
 
 
-        return "redirect:/cart/list";
+
+
     }
 }
